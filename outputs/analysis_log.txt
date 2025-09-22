@@ -1,0 +1,140 @@
+Step 1: Loading data from 'sample.csv'...
+✅ Data loaded and prepared.
+
+Step 2: Filtering data to the last 2 years...
+✅ Data filtered. Using records from 2023-09-23 to today.
+
+Step 3: Identifying pages with >20% outliers to exclude...
+✅ Found 0 pages to mark as 'Unused'.
+✅ Proceeding with 100 usable pages.
+
+Step 4: Performing 10 shuffles to find the best Test/Control split...
+  Shuffle 1/10: Similarity (Pearson correlation) = 0.9035
+  Shuffle 2/10: Similarity (Pearson correlation) = 0.8901
+  Shuffle 3/10: Similarity (Pearson correlation) = 0.9032
+  Shuffle 4/10: Similarity (Pearson correlation) = 0.8909
+  Shuffle 5/10: Similarity (Pearson correlation) = 0.8936
+  Shuffle 6/10: Similarity (Pearson correlation) = 0.9006
+  Shuffle 7/10: Similarity (Pearson correlation) = 0.9146
+  Shuffle 8/10: Similarity (Pearson correlation) = 0.9010
+  Shuffle 9/10: Similarity (Pearson correlation) = 0.8967
+  Shuffle 10/10: Similarity (Pearson correlation) = 0.9066
+✅ Found best split with a correlation of 0.9146.
+
+Step 5: Generating final outputs for the top-ranked split...
+--- OUTPUT 1: Split Quality Assessment ---
+📊 Correlation Score: 0.9146
+   Assessment: Good. The groups are well-correlated.
+
+📈 Minimum Detectable Effect (MDE):
+   With 80% power and 95% confidence, you would need to see a lift of at least 2.54% to declare a statistically significant result.
+   (This corresponds to an average daily click change of ~442 clicks.)
+
+✅ Final Verdict: The experimental setup is viable.
+------------------------------------------
+
+--- OUTPUT 2: Assignment Table ---
+                           URL    Group
+0    https://example.com/page0     Test
+1    https://example.com/page1     Test
+2   https://example.com/page10  Control
+3   https://example.com/page11  Control
+4   https://example.com/page12  Control
+5   https://example.com/page13     Test
+6   https://example.com/page14     Test
+7   https://example.com/page15  Control
+8   https://example.com/page16  Control
+9   https://example.com/page17     Test
+10  https://example.com/page18     Test
+11  https://example.com/page19     Test
+12   https://example.com/page2     Test
+13  https://example.com/page20  Control
+14  https://example.com/page21     Test
+15  https://example.com/page22  Control
+16  https://example.com/page23  Control
+17  https://example.com/page24     Test
+18  https://example.com/page25     Test
+19  https://example.com/page26     Test
+20  https://example.com/page27  Control
+21  https://example.com/page28     Test
+22  https://example.com/page29  Control
+23   https://example.com/page3  Control
+24  https://example.com/page30     Test
+25  https://example.com/page31  Control
+26  https://example.com/page32  Control
+27  https://example.com/page33  Control
+28  https://example.com/page34  Control
+29  https://example.com/page35     Test
+30  https://example.com/page36     Test
+31  https://example.com/page37     Test
+32  https://example.com/page38     Test
+33  https://example.com/page39  Control
+34   https://example.com/page4     Test
+35  https://example.com/page40  Control
+36  https://example.com/page41     Test
+37  https://example.com/page42     Test
+38  https://example.com/page43     Test
+39  https://example.com/page44  Control
+40  https://example.com/page45  Control
+41  https://example.com/page46     Test
+42  https://example.com/page47  Control
+43  https://example.com/page48     Test
+44  https://example.com/page49     Test
+45   https://example.com/page5     Test
+46  https://example.com/page50     Test
+47  https://example.com/page51  Control
+48  https://example.com/page52     Test
+49  https://example.com/page53     Test
+50  https://example.com/page54     Test
+51  https://example.com/page55  Control
+52  https://example.com/page56  Control
+53  https://example.com/page57  Control
+54  https://example.com/page58  Control
+55  https://example.com/page59  Control
+56   https://example.com/page6     Test
+57  https://example.com/page60  Control
+58  https://example.com/page61     Test
+59  https://example.com/page62  Control
+60  https://example.com/page63  Control
+61  https://example.com/page64  Control
+62  https://example.com/page65     Test
+63  https://example.com/page66     Test
+64  https://example.com/page67     Test
+65  https://example.com/page68     Test
+66  https://example.com/page69  Control
+67   https://example.com/page7  Control
+68  https://example.com/page70     Test
+69  https://example.com/page71  Control
+70  https://example.com/page72     Test
+71  https://example.com/page73     Test
+72  https://example.com/page74  Control
+73  https://example.com/page75     Test
+74  https://example.com/page76  Control
+75  https://example.com/page77  Control
+76  https://example.com/page78  Control
+77  https://example.com/page79  Control
+78   https://example.com/page8  Control
+79  https://example.com/page80  Control
+80  https://example.com/page81  Control
+81  https://example.com/page82     Test
+82  https://example.com/page83     Test
+83  https://example.com/page84  Control
+84  https://example.com/page85     Test
+85  https://example.com/page86  Control
+86  https://example.com/page87  Control
+87  https://example.com/page88     Test
+88  https://example.com/page89     Test
+89   https://example.com/page9     Test
+90  https://example.com/page90     Test
+91  https://example.com/page91  Control
+92  https://example.com/page92  Control
+93  https://example.com/page93     Test
+94  https://example.com/page94  Control
+95  https://example.com/page95     Test
+96  https://example.com/page96     Test
+97  https://example.com/page97  Control
+98  https://example.com/page98  Control
+99  https://example.com/page99  Control
+------------------------------------
+
+✅ Assignment table saved to './outputs/assignments.csv'.
