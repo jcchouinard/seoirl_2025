@@ -7,6 +7,10 @@ By: Jean-Christophe Chouinard
 
 This repository contains Python code and scripts designed to help SEO professionals implement the enduring, long-term principles of SEO, as discussed in the presentation "From SERPs to AI Search" shared at SEOIRL.
 
+Originally published here:
+
+[SEO Experiments: Create Test and Control Groups (with Python)](https://www.jcchouinard.com/python-seo-experiments-create-test-and-control-groups/)
+
 
 ## test_splitter.py 
 `test_splitter.py` takes in a `sample.csv` file with 3 columns:
