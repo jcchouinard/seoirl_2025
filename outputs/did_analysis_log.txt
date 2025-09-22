@@ -1,0 +1,13 @@
+Step 1: Loading and preparing data for DiD analysis...
+✅ Data prepared successfully.
+
+NOTE: Artificially adding a +15% lift to the test group in the post-period for demonstration.
+
+Step 2: Running Difference-in-Differences (DiD) regression...
+
+--- Difference-in-Differences (DiD) Results ---
+📊 Estimated Average Lift (Treatment Effect): 1749.38 clicks per day
+   - Relative Lift vs. Control Group: 16.89%
+   - 95% Confidence Interval for Lift: [466.32, 3032.45] clicks
+   - P-value: 0.0076
+✅ The result is statistically significant at the p < 0.05 level.

@@ -31,8 +31,8 @@ creds.js
 *.tsv
 *.tsv.gz
 *.xlsx
-*.csv
-
+*wiki*.csv
+*sample_create.py
 
 # Mac/OSX
 .DS_Store

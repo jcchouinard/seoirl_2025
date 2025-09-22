@@ -6,7 +6,10 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import sys
 
-def load_and_prepare_data(filename="sample.csv"):
+SAMPLE_DATA_FILENAME = './outputs/sample.csv' 
+ASSIGNMENTS_FILENAME = './outputs/assignments.csv' 
+
+def load_and_prepare_data(filename=SAMPLE_DATA_FILENAME):
     """
     Loads data from the specified CSV file and prepares it for analysis.
     """
@@ -23,7 +26,7 @@ def load_and_prepare_data(filename="sample.csv"):
 
 def find_best_split(df_filtered, num_shuffles=10, outlier_threshold=0.20):
     """
-    UPDATED: Performs shuffles, stores all results, and returns them sorted by score.
+    Performs shuffles, stores all results, and returns them sorted by score.
     """
     print(f"Step 3: Identifying pages with >{outlier_threshold:.0%} outliers to exclude...")
     
@@ -47,7 +50,7 @@ def find_best_split(df_filtered, num_shuffles=10, outlier_threshold=0.20):
 
     print(f"Step 4: Performing {num_shuffles} shuffles to find the best Test/Control split...")
     
-    all_splits = [] # Store results of all shuffles
+    all_splits = [] 
 
     for i in range(num_shuffles):
         np.random.shuffle(usable_urls)
@@ -77,7 +80,6 @@ def find_best_split(df_filtered, num_shuffles=10, outlier_threshold=0.20):
             corr, _ = pearsonr(test_ts_smoothed[common_index], control_ts_smoothed[common_index])
             print(f"  Shuffle {i+1}/{num_shuffles}: Similarity (Pearson correlation) = {corr:.4f}")
             
-            # Append the result of this shuffle
             all_splits.append({
                 'score': corr,
                 'test_urls': test_urls,
@@ -86,7 +88,6 @@ def find_best_split(df_filtered, num_shuffles=10, outlier_threshold=0.20):
         else:
             print(f"  Shuffle {i+1}/{num_shuffles}: Not enough data to compare.")
     
-    # Sort all splits by score in descending order
     all_splits.sort(key=lambda x: x['score'], reverse=True)
     
     if all_splits:
@@ -150,7 +151,7 @@ def generate_assessment_and_table(best_split, unused_urls, all_urls_df):
 
 def plot_top_n_shuffles(all_splits, df_filtered, n=3):
     """
-    NEW: Creates side-by-side plots for the top n shuffles.
+    Creates side-by-side plots for the top n shuffles.
     """
     print(f"Step 6: Generating side-by-side comparison for top {n} splits...")
     
@@ -239,7 +240,7 @@ def plot_relative_performance(best_split, df_filtered):
     plt.tight_layout()
     plt.show()
 
-def save_assignments_to_csv(assignment_df, filename='./outputs/assignments.csv'):
+def save_assignments_to_csv(assignment_df, filename=ASSIGNMENTS_FILENAME):
     """
     Saves the final assignment DataFrame to a CSV file.
     """
@@ -257,27 +258,32 @@ if __name__ == "__main__":
         original_stdout = sys.stdout
         sys.stdout = log_file
         
-        raw_df = load_and_prepare_data(filename="sample.csv")
+        raw_df = load_and_prepare_data()
         
         plot_data = None
         
         if raw_df is not None:
-            print("Step 2: Filtering data to the last 2 years...")
-            two_years_ago = datetime.now() - timedelta(days=730)
-            df_filtered = raw_df[raw_df['date'] >= two_years_ago].copy()
-            print(f"✅ Data filtered. Using records from {two_years_ago.date()} to today.\n")
+            print("Step 2: Filtering data to the last 2 years based on the file's date range...")
             
-            # UPDATED: find_best_split now returns a list of all splits
+            # --- UPDATED: Calculate date range based on the data file ---
+            # Find the most recent date in the dataset
+            latest_date_in_file = raw_df['date'].max()
+            # Calculate the start date for the filter (2 years before the latest date)
+            start_date_for_filter = latest_date_in_file - timedelta(days=730)
+            
+            # Filter the DataFrame using the date range from the file
+            df_filtered = raw_df[raw_df['date'] >= start_date_for_filter].copy()
+            
+            print(f"✅ Data filtered. Using records from {start_date_for_filter.date()} to {latest_date_in_file.date()}.\n")
+            
             all_splits_info, unused_urls_list = find_best_split(df_filtered)
             
             if all_splits_info:
-                # The best split is the first one in the sorted list
                 best_split_info = all_splits_info[0]
                 
                 final_table = generate_assessment_and_table(best_split_info, unused_urls_list, raw_df)
                 save_assignments_to_csv(final_table)
                 
-                # Store all data needed for the plots
                 plot_data = {
                     'all_splits': all_splits_info,
                     'best_split': best_split_info, 
@@ -292,9 +298,7 @@ if __name__ == "__main__":
     print(f"✅ Analysis complete. Log saved to '{log_filename}'.")
 
     if plot_data:
-        # NEW: Call the side-by-side comparison plot first
         plot_top_n_shuffles(plot_data['all_splits'], plot_data['df_filtered'], n=3)
         
-        # Then, show the detailed plots for the #1 split
         plot_final_split(plot_data['best_split'], plot_data['unused_urls'], plot_data['df_filtered'])
         plot_relative_performance(plot_data['best_split'], plot_data['df_filtered'])

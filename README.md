@@ -11,6 +11,14 @@ Originally published here:
 
 [SEO Experiments: Create Test and Control Groups (with Python)](https://www.jcchouinard.com/python-seo-experiments-create-test-and-control-groups/)
 
+## Get Started
+
+```
+$ python3 -m venv venv
+$ source venv/bin/activate
+$ pip install -r requirements.txt
+```
+
 
 ## test_splitter.py 
 `test_splitter.py` takes in a `sample.csv` file with 3 columns:
@@ -92,3 +100,8 @@ Step 5: Generating final outputs for the top-ranked split...
 
 ## Disclaimer
 This code is quite simplistic and meant for educational purposes, as an alternative to pseudo-code, helping to understand what a splitting logic should look like. Most of the code what written by Gemini and reviewed by me, without that much work put into validating splits and no deep analysis in choosing the best parameters. It is recommended to do hyperparameter tuning and adapt the rules to your own data.
+
+
+## impact_analysis.py
+
+Causal Impact Python wrapper is broken, but that is allright, we don't need it. We can run Difference-in-Difference and plot results similar to how Causal Impact does.
