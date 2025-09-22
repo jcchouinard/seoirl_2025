@@ -105,3 +105,14 @@ This code is quite simplistic and meant for educational purposes, as an alternat
 ## impact_analysis.py
 
 Causal Impact Python wrapper is broken, but that is allright, we don't need it. We can run Difference-in-Difference and plot results similar to how Causal Impact does.
+
+Once again, this is not code to put in production, but code to understand the logic of how to calculate Diff in Diff. 
+
+1. Loads pre-assigned test and control group data.
+2. Performs a Difference-in-Differences (DiD) regression analysis.
+3. Calculates the experiment's lift and statistical significance.
+4. Saves the text-based results to a log file.
+5. Plots a three-panel chart of the causal effect.
+6. Allows easy configuration of files, dates, and uplift.
+
+![](./outputs/did_analysis_plot.png)

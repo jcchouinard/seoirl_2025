@@ -6,8 +6,8 @@ NOTE: Artificially adding a +15% lift to the test group in the post-period for d
 Step 2: Running Difference-in-Differences (DiD) regression...
 
 --- Difference-in-Differences (DiD) Results ---
-📊 Estimated Average Lift (Treatment Effect): 1749.38 clicks per day
-   - Relative Lift vs. Control Group: 16.89%
-   - 95% Confidence Interval for Lift: [466.32, 3032.45] clicks
-   - P-value: 0.0076
+📊 Estimated Average Lift (Treatment Effect): 1666.93 clicks per day
+   - Relative Lift vs. Control Group: 16.08%
+   - 95% Confidence Interval for Lift: [383.66, 2950.19] clicks
+   - P-value: 0.0109
 ✅ The result is statistically significant at the p < 0.05 level.
