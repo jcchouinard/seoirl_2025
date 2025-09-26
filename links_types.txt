@@ -1,0 +1,7 @@
+primary_citations: message.item[index].url
+grouped_citations: message.item[index].supporting_websites
+sidebar_citations: [conversation] -> mapping -> [message_id] -> message -> metadata -> cite_map
+sidebar_citations_more: message.search_results_groups.entries
+business_map: message.metadata.content_references.businesses
+decorated_links: message.content.parts only found by parsing the text to find links
+images: messages.images

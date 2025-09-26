@@ -116,3 +116,39 @@ Once again, this is not code to put in production, but code to understand the lo
 6. Allows easy configuration of files, dates, and uplift.
 
 ![](./outputs/did_analysis_plot.png)
+
+
+## chatgpt_conversations_report.py 
+
+It returns the link_visibility_report.txt, a link_visibility_data.csv file as well as charts like these:
+
+ ![](./outputs/link_type_distribution.png)
+
+ ![](./outputs/top_domains_by_link_type.png)
+
+
+Where here are how these link types show up in ChatGPT 
+
+### primary_citations
+
+![](./outputs/primary_citations.png)
+
+### grouped_citations
+![](./outputs/grouped_citations.png)
+
+### sidebar_citations
+![](./outputs/sidebar_citations.png)
+
+### sidebar_citations_more
+![](./outputs/sidebar_citations_more.png)
+
+### business_map
+![](./outputs/business_map.png)
+
+### decorated_links
+![](./outputs/decorated_links.png)
+
+
+## chatgpt_query_report.py 
+
+Returns links_by_conversation_title.csv and a report_by_title.txt where links are organize by conversation name (ChatGPT label of each conversation).
